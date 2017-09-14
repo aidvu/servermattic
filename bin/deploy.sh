@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GITURL='https://github.com/vnsavage/servermattic.git'
+GITURL='https://github.com/ebinnion/servermattic.git'
 
 # Hack to get rid of bad stuff in your apt sources file
 sed -i s/'^deb cdrom'/'# deb cdrom'/g /etc/apt/sources.list
@@ -11,11 +11,11 @@ OIFS=$IFS
 IFS=$(echo -e "\r\n")
 
 for x in $(apt-get -qqfy install git)
-  do 
+  do
     echo -e "\t$x"
 done
 
-mkdir -p /root/bin 
+mkdir -p /root/bin
 
 if echo $GITURL |grep -q '^git@github.com:'; then
 	ssh-keyscan -t rsa -H github.com >> ~/.ssh/known_hosts
@@ -28,7 +28,7 @@ git fetch
 git checkout -q -f -t origin/master
 git pull
 
-export DEBIAN_FRONTEND=noninteractive  
+export DEBIAN_FRONTEND=noninteractive
 /bin/bash /root/bin/role.sh init
 
 # Remove thyself
