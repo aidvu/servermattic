@@ -1,6 +1,6 @@
 #!/bin/bash
 
-  export DEBIAN_FRONTEND=noninteractive 
+  export DEBIAN_FRONTEND=noninteractive
 
   need_help=0
   if [ $# -eq 0 ];      then need_help=1; fi
@@ -48,7 +48,7 @@
   }
 
   function sysinit {
-    chmod ug+x /root/bin/* 
+    chmod ug+x /root/bin/*
 
 	if [ -d /root/.git ]; then
 		cd /root
@@ -149,7 +149,7 @@ SP=" "
 
   function apply_auto {
     get_metadata
-    
+
 	# We always apply base, if it exists
     if [ -d /root/migrations/base ]; then
       if [ ! -f /etc/roles/base ]; then
