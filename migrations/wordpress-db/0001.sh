@@ -3,6 +3,7 @@ if [ `hostname | grep db1` ]; then INST=1-0; else INST=1-1; fi
 
 ln -sf /etc/mysql-initscripts/mysql-5.6 /etc/init.d/mysql$INST
 ln -sf /usr/local/mysql-latest /usr/local/mysql
+ln -sf /usr/local/etc/mysql/mysql$INST.conf /etc/mysql/mysql$INST.cnf
 PATH=$PATH:/usr/local/mysql/bin/
 
 mkdir -p /var/log/mysql$INST
